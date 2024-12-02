@@ -1,0 +1,121 @@
+:root {
+  --left-bg-color: rgba(87, 84, 236, 0.7);
+  --right-bg-color: rgba(43, 43, 43, 0.8);
+  --left-btn-color: rgba(87, 84, 236, 1);
+  --right-btn-color: rgba(28, 122, 28, 1);
+  --hoover-width: 75%;
+  --other-width: 25%;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Mulish", sans-serif;
+
+  height: 100vh;
+  overflow-x: hidden;
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #333;
+}
+.slipt {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+}
+.slipt.left {
+  left: 0;
+  background: url("https://github.com/bradtraversy/50projects50days/blob/master/split-landing-page/ps.jpg?raw=true");
+  background-repeat: no-repeat;
+  block-size: cover;
+}
+.slipt.left::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--left-bg-color);
+}
+.slipt.right::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--right-bg-color);
+}
+.slipt.right {
+  right: 0;
+  background: url("https://github.com/bradtraversy/50projects50days/blob/master/split-landing-page/xbox.jpg?raw=true");
+  background-repeat: no-repeat;
+  block-size: cover;
+}
+h1 {
+  font-size: 4rem;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.btn {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translateX(-50%);
+  text-decoration: none;
+  color: #fff;
+  border: solid #fff 0.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 15rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slipt.left .btn:hover {
+  background-color: var(--left-btn-color);
+  border-color: var(--left-btn-color);
+}
+.slipt.right .btn:hover {
+  background-color: var(--right-btn-color);
+  border-color: var(--right-btn-color);
+}
+.hover-left .left {
+  width: var(--hoover-width);
+}
+
+.hover-right .right {
+  width: var(--hoover-width);
+}
+.hover-right .left {
+  width: var(--other-width);
+}
+
+.hover-left .right {
+  width: var(--other-width);
+}
+.slipt.right,
+.slipt.left,
+.slipt.right::before,
+.slipt.left::before {
+  transition: all 1000ms ease-in-out;
+}
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2rem;
+    top: 30%;
+  }
+  .btn {
+    padding: 1.2rem;
+    width: 12rem;
+  }
+}
